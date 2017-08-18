@@ -1,4 +1,5 @@
 # PlayStation4 stereo camera package for ROS
+high resolution version(1280 * 800)
 
 [![Screenshot](http://img.youtube.com/vi/yUa3Rya6fhk/hqdefault.jpg)](https://www.youtube.com/watch?v=yUa3Rya6fhk)
 
