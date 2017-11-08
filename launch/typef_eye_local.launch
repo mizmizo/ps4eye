@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find ps4eye)/launch/stereo_high_resolution_local.launch">
+    <arg name="parent_frame" value="/head_base_link"/>
+    <!--arg name="parent_transform" value="0.045 0 0.11 -1.57 0 -1.57"/-->
+    <arg name="parent_transform" value="0.06 0.04 0.08 -1.570791 0  -1.570791"/>
+  </include>
+</launch>
