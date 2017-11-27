@@ -1,7 +1,17 @@
 <launch>
+  <arg name="throttle" default="true" />
+  <arg name="throttle_fps" default="3" />
+
   <include file="$(find ps4eye)/launch/stereo_high_resolution_remote.launch">
     <arg name="parent_frame" value="/head_base_link"/>
     <!--arg name="parent_transform" value="0.045 0 0.11 -1.57 0 -1.57"/-->
     <arg name="parent_transform" value="0.06 0.04 0.08 -1.570791 0  -1.570791"/>
   </include>
+
+ <!-- throttle and compress -->
+ <node name="throttle" pkg="topic_tools" type="throttle" output="screen"
+       args="messages /camera/image_raw $(arg throttle_fps) /camera/image_raw_throttle" respawn="true" if="$(arg throttle)"/>
+ <node name="typef_throttle_proc" pkg="image_proc" type="image_proc" output="screen" respawn="true" >
+   <remap from="image_rect_color" to="image_raw_throttle"/>
+ </node>
 </launch>
